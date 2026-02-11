@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-  <title>Login Demo</title>
+  <title>Mi Test Web Page</title>
   <style>
   
   </style>
@@ -12,7 +12,7 @@
 <body>
   <main class="card" id="loginPage">
     <h1>Login</h1>
-    <form id="loginForm">
+    <form id="loginForm" action="home.html" method="get">
       <label for="username">Username</label>
       <input id="username" type="text" placeholder="Enter username" required />
 
@@ -20,27 +20,10 @@
       <input id="password" type="password" placeholder="Enter password" required />
 
       <button type="submit">Sign In</button>
-      <p class="hint">Any username/password works for this demo.</p>
+      <p class="hint">Any username/password works for this.</p>
     </form>
   </main>
 
-  <main class="card" id="homepage" aria-live="polite">
-    <h1>Homepage</h1>
-    <p>
-      Welcome! Your are now logged in.
-    </p>
-  </main>
-
-  <script>
-    const loginForm = document.getElementById('loginForm');
-    const loginPage = document.getElementById('loginPage');
-    const homepage = document.getElementById('homepage');
-
-    loginForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      loginPage.style.display = 'none';
-      homepage.style.display = 'block';
-    });
-  </script>
+ 
 </body>
 </html>
