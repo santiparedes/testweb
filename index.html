@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link to the external CSS stylesheet -->
   <link rel="stylesheet" href="style.css">
   <title>Mi Test Web Page</title>
-  <style>
-  
-  </style>
 </head>
+
 <body>
+  <header>
+    <a href="home.html" class="logo">Mi Test Web</a>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html" class="active">Login</a>
+      <a href="register.html">Register</a>
+    </nav>
+  </header>
+
   <main class="card" id="loginPage">
     <h1>Login</h1>
+    <!-- Login form that submits to home.html via GET request -->
     <form id="loginForm" action="home.html" method="get">
       <label for="username">Username</label>
       <input id="username" type="text" placeholder="Enter username" required />
@@ -20,10 +33,15 @@
       <input id="password" type="password" placeholder="Enter password" required />
 
       <button type="submit">Sign In</button>
-      <p class="hint">Any username/password works for this.</p>
     </form>
+    <p style="margin-top: 1rem; text-align: center; font-size: 0.875rem;">
+      Don't have an account? <a href="register.html" style="color: #2563eb; text-decoration: none;">Register here</a>
+    </p>
   </main>
 
- 
+  <footer>
+    &copy; 2026 Mi Test Web. All rights reserved.
+  </footer>
 </body>
+
 </html>
