@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (user) {
                 console.log('Login successful:', user);
+                sessionStorage.setItem('userToken', user.username); // Create session token
                 window.location.href = 'home.html';
             } else {
                 console.log('Login failed: Invalid credentials');
