@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Pokédex - Mi Test Web</title>
+</head>
+
+<body>
+
+    <main class="container" id="pokemonPage">
+        <h1>Pokédex</h1>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="searchInput">Buscar (Nombre o ID):</label>
+                <input type="text" id="searchInput" placeholder="Ej. Pikachu, 25..." oninput="filterPokemon()">
+            </div>
+
+            <div class="filter-group">
+                <label for="typeSelect">Filtrar por Tipo:</label>
+                <select id="typeSelect" onchange="filterPokemon()">
+                    <option value="all">Todos</option>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="grass">Planta</option>
+                    <option value="electric">Eléctrico</option>
+                    <option value="ice">Hielo</option>
+                    <option value="fighting">Lucha</option>
+                    <option value="poison">Veneno</option>
+                    <option value="ground">Tierra</option>
+                    <option value="flying">Volador</option>
+                    <option value="psychic">Psíquico</option>
+                    <option value="bug">Bicho</option>
+                    <option value="rock">Roca</option>
+                    <option value="ghost">Fantasma</option>
+                    <option value="dragon">Dragón</option>
+                    <option value="dark">Siniestro</option>
+                    <option value="steel">Acero</option>
+                    <option value="fairy">Hada</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Cargando Pokémon...</p>
+        </div>
+
+        <div id="pokemon-grid" class="pokemon-grid" style="display: none;">
+            <!-- Pokemons se inyectaran aqui desde JS -->
+        </div>
+    </main>
+
+    <script src="layout.js"></script>
+    <script src="pokemon.js"></script>
+</body>
+
+</html>

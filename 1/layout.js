@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="home.html" ${currentPage === 'home.html' ? 'class="active"' : ''}>Home</a>
                 <a href="about.html" ${currentPage === 'about.html' ? 'class="active"' : ''}>About</a>
                 <a href="services.html" ${currentPage === 'services.html' ? 'class="active"' : ''}>Services</a>
+                <a href="pokemon.html" ${currentPage === 'pokemon.html' ? 'class="active"' : ''}>Pokédex</a>
                 <a href="contact.html" ${currentPage === 'contact.html' ? 'class="active"' : ''}>Contact</a>
                 ${!userToken ? `
                     <a href="index.html" ${currentPage === 'index.html' ? 'class="active"' : ''}>Login</a>
