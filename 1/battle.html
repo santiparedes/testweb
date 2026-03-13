@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Batalla Pokémon - Mi Test Web</title>
+</head>
+
+<body>
+
+    <main class="container" id="battlePage">
+        <h1>Arena de Batalla Pokémon</h1>
+
+        <!-- Selection Phase -->
+        <div id="selection-phase" class="card" style="width: 100%; max-width: 600px; margin: 0 auto;">
+            <h2>Elige a tus combatientes</h2>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <div style="flex: 1;">
+                    <label for="pokemon1Select">Pokémon 1:</label>
+                    <select id="pokemon1Select">
+                        <option value="">Cargando Pokémon...</option>
+                    </select>
+                </div>
+                <div style="flex: 1;">
+                    <label for="pokemon2Select">Pokémon 2:</label>
+                    <select id="pokemon2Select">
+                        <option value="">Cargando Pokémon...</option>
+                    </select>
+                </div>
+            </div>
+            <button id="start-battle-btn" disabled>Comenzar Batalla</button>
+        </div>
+
+        <!-- Battle Arena Phase (Hidden initially) -->
+        <div id="battle-arena" class="battle-arena" style="display: none;">
+
+            <div class="combatants-container">
+                <!-- Pokemon 1 (Left) -->
+                <div class="combatant" id="combatant-1">
+                    <h3 class="combatant-name" id="name-1">Pokemon 1</h3>
+                    <div class="health-container">
+                        <div class="health-bar">
+                            <div class="health-fill" id="hp-bar-1" style="width: 100%;"></div>
+                        </div>
+                        <span class="hp-text" id="hp-text-1">100%</span>
+                    </div>
+                    <img id="img-1" src="" class="combatant-img" alt="Pokemon 1">
+
+                    <!-- Cooldown Indicators Structure -->
+                    <div class="cooldowns">
+                        <span id="cd-sa-1" class="cooldown-badge">Atk. Especial: Listo</span>
+                        <span id="cd-sd-1" class="cooldown-badge">Def. Especial: Listo</span>
+                    </div>
+                </div>
+
+                <div class="vs-badge">VS</div>
+
+                <!-- Pokemon 2 (Right) -->
+                <div class="combatant" id="combatant-2">
+                    <h3 class="combatant-name" id="name-2">Pokemon 2</h3>
+                    <div class="health-container">
+                        <div class="health-bar">
+                            <div class="health-fill" id="hp-bar-2" style="width: 100%;"></div>
+                        </div>
+                        <span class="hp-text" id="hp-text-2">100%</span>
+                    </div>
+                    <img id="img-2" src="" class="combatant-img" alt="Pokemon 2">
+
+                    <!-- Cooldown Indicators Structure -->
+                    <div class="cooldowns">
+                        <span id="cd-sa-2" class="cooldown-badge">Atk. Especial: Listo</span>
+                        <span id="cd-sd-2" class="cooldown-badge">Def. Especial: Listo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Battle narrative log -->
+            <div class="battle-log-container">
+                <h3>Registro de Batalla</h3>
+                <div id="battle-log" class="battle-log">
+                    <p class="log-entry log-system">La batalla está a punto de comenzar...</p>
+                </div>
+            </div>
+
+            <!-- Modal para Ganador -->
+            <div id="winner-modal" class="winner-modal" style="display: none;">
+                <div class="winner-card">
+                    <h2 class="winner-title">¡Ganador!</h2>
+                    <img id="winner-img" src="" alt="Winner Pokemon" class="winner-img">
+                    <h3 id="winner-name" class="winner-name">Name</h3>
+                    <button onclick="location.reload()">Jugar de Nuevo</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="layout.js"></script>
+    <script src="battle.js"></script>
+</body>
+
+</html>
