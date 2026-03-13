@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Vinculamos nuestra hoja de estilos para darle un aspecto visual moderno ("premium") -->
     <link rel="stylesheet" href="style.css">
     <title>Batalla Pokémon - Mi Test Web</title>
 </head>
@@ -13,16 +14,21 @@
     <main class="container" id="battlePage">
         <h1>Arena de Batalla Pokémon</h1>
 
-        <!-- Selection Phase -->
+        <!-- Fase de Selección: Aquí el usuario elige los dos Pokémon que van a pelear.
+             Al iniciar, el archivo de javascript (battle.js) llenará estos selectores. -->
         <div id="selection-phase" class="card" style="width: 100%; max-width: 600px; margin: 0 auto;">
             <h2>Elige a tus combatientes</h2>
             <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                
+                <!-- Selector para el Primer Pokémon -->
                 <div style="flex: 1;">
                     <label for="pokemon1Select">Pokémon 1:</label>
                     <select id="pokemon1Select">
                         <option value="">Cargando Pokémon...</option>
                     </select>
                 </div>
+                
+                <!-- Selector para el Segundo Pokémon -->
                 <div style="flex: 1;">
                     <label for="pokemon2Select">Pokémon 2:</label>
                     <select id="pokemon2Select">
@@ -30,45 +36,55 @@
                     </select>
                 </div>
             </div>
+            
+            <!-- Botón para iniciar el combate. Se activará desde el Javascript cuando se seleccionen dos Pokémon -->
             <button id="start-battle-btn" disabled>Comenzar Batalla</button>
         </div>
 
-        <!-- Battle Arena Phase (Hidden initially) -->
+        <!-- Fase de Batalla (Oculta hasta que el usuario le de clic a 'Comenzar Batalla') -->
         <div id="battle-arena" class="battle-arena" style="display: none;">
-
+            
             <div class="combatants-container">
-                <!-- Pokemon 1 (Left) -->
+                
+                <!-- Zona del Pokémon 1 (A la izquierda) -->
                 <div class="combatant" id="combatant-1">
-                    <h3 class="combatant-name" id="name-1">Pokemon 1</h3>
+                    <h3 class="combatant-name" id="name-1">Pokémon 1</h3>
+                    
+                    <!-- Barra de vida dinámica que mostrará el 100% hasta al 0% visualmente -->
                     <div class="health-container">
                         <div class="health-bar">
                             <div class="health-fill" id="hp-bar-1" style="width: 100%;"></div>
                         </div>
                         <span class="hp-text" id="hp-text-1">100%</span>
                     </div>
+                    
+                    <!-- Imagen oficial de alta resolución del Pokémon -->
                     <img id="img-1" src="" class="combatant-img" alt="Pokemon 1">
-
-                    <!-- Cooldown Indicators Structure -->
+                    
+                    <!-- Indicadores de los tiempo de espera ("Cooldowns") antes de volver a usar un ataque o defensa especial.
+                         Se rigen bajo nuestras reglas de 3 turnos (Ataque Especial) y 2 turnos (Defensa). -->
                     <div class="cooldowns">
                         <span id="cd-sa-1" class="cooldown-badge">Atk. Especial: Listo</span>
                         <span id="cd-sd-1" class="cooldown-badge">Def. Especial: Listo</span>
                     </div>
                 </div>
 
+                <!-- Un separador central de decoración visual ('Versus') -->
                 <div class="vs-badge">VS</div>
 
-                <!-- Pokemon 2 (Right) -->
+                <!-- Zona del Pokémon 2 (A la derecha) -->
                 <div class="combatant" id="combatant-2">
-                    <h3 class="combatant-name" id="name-2">Pokemon 2</h3>
+                    <h3 class="combatant-name" id="name-2">Pokémon 2</h3>
+                    
                     <div class="health-container">
                         <div class="health-bar">
                             <div class="health-fill" id="hp-bar-2" style="width: 100%;"></div>
                         </div>
                         <span class="hp-text" id="hp-text-2">100%</span>
                     </div>
+                    
                     <img id="img-2" src="" class="combatant-img" alt="Pokemon 2">
-
-                    <!-- Cooldown Indicators Structure -->
+                    
                     <div class="cooldowns">
                         <span id="cd-sa-2" class="cooldown-badge">Atk. Especial: Listo</span>
                         <span id="cd-sd-2" class="cooldown-badge">Def. Especial: Listo</span>
@@ -76,7 +92,7 @@
                 </div>
             </div>
 
-            <!-- Battle narrative log -->
+            <!-- Registro de la Batalla (Bitácora texto: mostrará qué turno es, cuándo daño se hizo, etc.) -->
             <div class="battle-log-container">
                 <h3>Registro de Batalla</h3>
                 <div id="battle-log" class="battle-log">
@@ -84,20 +100,21 @@
                 </div>
             </div>
 
-            <!-- Modal para Ganador -->
+            <!-- Pantalla o Cuadro Flotante ("Modal") para mostrar al Pokémon Ganador al finalizar -->
             <div id="winner-modal" class="winner-modal" style="display: none;">
                 <div class="winner-card">
                     <h2 class="winner-title">¡Ganador!</h2>
+                    <!-- Aquí el Javascript inyectará la foto y el nombre del pokemon ganador al finalizar los eventos -->
                     <img id="winner-img" src="" alt="Winner Pokemon" class="winner-img">
-                    <h3 id="winner-name" class="winner-name">Name</h3>
+                    <h3 id="winner-name" class="winner-name">Nombre</h3>
                     <button onclick="location.reload()">Jugar de Nuevo</button>
                 </div>
             </div>
-
+            
         </div>
     </main>
 
-    <!-- Scripts -->
+    <!-- Importamos nuestras lógicas externas. layout.js inyecta la barra de navegación del sitio completo. -->
     <script src="layout.js"></script>
     <script src="battle.js"></script>
 </body>
